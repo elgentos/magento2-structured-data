@@ -1,0 +1,64 @@
+{
+    "name": "elgentos/magento2-structured-data",
+    "description": "Implement structured data for Magento 2 webshops.",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "elgentos ecommerce",
+            "email": "info@elgentos.nl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4",
+        "magento/framework": "^103.0",
+        "magento/module-catalog": "^104.0",
+        "magento/module-eav": "^102.1",
+        "magento/module-review": "^100.4",
+        "magento/module-search": "^101.1",
+        "magento/module-store": "^101.1",
+        "magento/module-theme": "^101.1"
+    },
+    "require-dev": {
+        "mediact/coding-standard-magento2": "@stable",
+        "mediact/testing-suite": "^2.9"
+    },
+    "repositories": {
+        "magento": {
+            "type": "composer",
+            "url": "https://repo.magento.com"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "/.gitignore",
+            "/grumphp.yml",
+            "/pdepend.xml",
+            "/phpstan.neon",
+            "/phpunit.xml",
+            "/phpcs.xml",
+            "/phpmd.xml",
+            "/package.json",
+            "/.eslintrc.json",
+            "/.eslintignore",
+            "/tests"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "files": [
+            "src/registration.php"
+        ],
+        "psr-4": {
+            "Elgentos\\StructuredData\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Elgentos\\StructuredData\\Tests\\": "tests/"
+        }
+    }
+}

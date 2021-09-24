@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block name="structured_data.breadcrumbs"
+                   template="Elgentos_StructuredData::schema.phtml">
+                <arguments>
+                    <argument name="structured_data_view_model" xsi:type="object">Elgentos\StructuredData\ViewModel\Schema\Breadcrumbs</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

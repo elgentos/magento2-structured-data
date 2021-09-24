@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright Elgentos. All rights reserved.
+ * https://www.elgentos.nl
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="elgentos" translate="label" sortOrder="100">
+            <label>Elgentos</label>
+        </tab>
+        <section id="structured_data" sortOrder="20" showInDefault="1" showInStore="1" showInWebsite="1">
+            <tab>elgentos</tab>
+            <label>Structured Data</label>
+            <resource>Elgentos_StructuredData::config_structureddata</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>General Settings</label>
+                <field id="enabled"  sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1" translate="label" type="select">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="homepage" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Homepage Settings</label>
+                <field id="organization" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1" translate="label" type="select">
+                    <label>Display Organization Data</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="website" sortOrder="20" showInDefault="1" showInStore="1" showInWebsite="1" translate="label" type="select">
+                    <label>Display Website Data</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="product" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Product Page Settings</label>
+                <field id="enabled" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1" translate="label" type="select">
+                    <label>Display Product Data</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="gtin" sortOrder="20" showInDefault="1" showInStore="1" showInWebsite="1" translate="label comment" type="select">
+                    <label>Global Identifier Attribute</label>
+                    <source_model>Elgentos\StructuredData\Model\Config\Source\ProductAttributes</source_model>
+                    <comment><![CDATA[For example GTIN, ISBN, MPN, etc.]]></comment>
+                </field>
+                <field id="review_limit" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1" translate="label comment" type="text">
+                    <label>Maximum Number of Reviews to Display</label>
+                    <validate>validate-zero-or-greater</validate>
+                    <comment><![CDATA[Set this number to only include a max amount of reviews. Set to 0 to include all reviews.]]></comment>
+                </field>
+            </group>
+            <group id="breadcrumb" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Breadcrumb Settings</label>
+                <field id="enabled"  sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1" translate="label" type="select">
+                    <label>Display Breadcrumb Data</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

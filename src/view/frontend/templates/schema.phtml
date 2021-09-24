@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+/** @var SchemaInterfface $block */
+
+/** @var SchemaInterfface $structuredDataViewModel */
+$structuredDataViewModel = $block->getData('structured_data_view_model');
+
+use Elgentos\StructuredData\Block\Schema\SchemaInterface;
+?>
+<?php if ($structuredDataViewModel->isEnabled()): ?>
+    <script type="application/ld+json">
+        <?= /* @noEscape */ $structuredDataViewModel->getSerializedData() ?>
+    </script>
+<?php endif ?>

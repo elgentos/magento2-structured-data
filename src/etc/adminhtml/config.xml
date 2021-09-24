@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <structured_data>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <homepage>
+                <organization>0</organization>
+                <website>0</website>
+            </homepage>
+            <product>
+                <enabled>0</enabled>
+            </product>
+            <breadcrumbs>
+                <enabled>0</enabled>
+            </breadcrumbs>
+        </structured_data>
+    </default>
+</config>

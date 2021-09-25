@@ -6,9 +6,10 @@ namespace Elgentos\StructuredData\ViewModel\Schema;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Serialize\Serializer\Json;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Store\Model\ScopeInterface;
 
-abstract class AbstractSchema implements SchemaInterface
+abstract class AbstractSchema implements SchemaInterface, ArgumentInterface
 {
     protected const SCHEMA_CONTEXT   = 'https://schema.org/',
         SCHEMA_TYPE_ORGANIZATION     = 'Organization',

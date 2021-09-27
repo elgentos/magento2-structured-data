@@ -11,6 +11,7 @@ namespace Elgentos\StructuredData\Tests\ViewModel\Schema;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Serialize\Serializer\Json;
+use Magento\Framework\UrlInterface;
 use Magento\Theme\Block\Html\Header\Logo;
 use PHPUnit\Framework\TestCase;
 use Elgentos\StructuredData\ViewModel\Schema\Organization;
@@ -51,6 +52,7 @@ class OrganizationTest extends TestCase
         $subject = new Organization(
             $scopeConfig,
             $this->createMock(Json::class),
+            $this->createMock(UrlInterface::class),
             $logo
         );
 
@@ -67,6 +69,7 @@ class OrganizationTest extends TestCase
         $subject = new Organization(
             $this->createMock(ScopeConfigInterface::class),
             $this->createMock(Json::class),
+            $this->createMock(UrlInterface::class),
             $this->createMock(Logo::class)
         );
 

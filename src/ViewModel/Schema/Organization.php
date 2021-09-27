@@ -6,6 +6,7 @@ namespace Elgentos\StructuredData\ViewModel\Schema;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Serialize\Serializer\Json;
+use Magento\Framework\UrlInterface;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Theme\Block\Html\Header\Logo;
 
@@ -13,14 +14,18 @@ class Organization extends AbstractSchema
 {
     private Logo $logo;
 
+    private UrlInterface $urlBuilder;
+
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         Json $serializer,
+        UrlInterface $urlBuilder,
         Logo $logo
     ) {
         parent::__construct($scopeConfig, $serializer);
 
-        $this->logo = $logo;
+        $this->urlBuilder = $urlBuilder;
+        $this->logo       = $logo;
     }
 
     public function getStructuredData(): array
@@ -32,6 +37,7 @@ class Organization extends AbstractSchema
             'email' => $this->getCompanyEmail(),
             'telephone' => $this->getCompanyTelephone(),
             'logo' => $this->getWebsiteLogo(),
+            'url' => $this->urlBuilder->getBaseUrl(),
             'address' => $this->getOrganizationAddress()
         ];
     }

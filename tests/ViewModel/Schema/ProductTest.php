@@ -40,8 +40,13 @@ class ProductTest extends TestCase
      */
     public function testIsEnabled(): void
     {
+        $scopeConfig = $this->createMock(ScopeConfigInterface::class);
+        $scopeConfig->expects(self::any())
+            ->method('isSetFlag')
+            ->willReturn(true);
+
         $subject = new Product(
-            $this->createMock(ScopeConfigInterface::class),
+            $scopeConfig,
             $this->createMock(Json::class),
             $this->createMock(Registry::class),
             $this->createMock(Image::class),

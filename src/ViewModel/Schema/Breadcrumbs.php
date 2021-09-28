@@ -10,11 +10,14 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\Template\Context;
+use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 
 class Breadcrumbs extends AbstractSchema
 {
+    private const XML_PATH_BREADCRUMBS_ENABLED = 'structured_data/breadcrumb/enabled';
+
     private Data $catalogData;
 
     private StoreManagerInterface $storeManager;
@@ -46,7 +49,11 @@ class Breadcrumbs extends AbstractSchema
 
     public function isEnabled(): bool
     {
-        return true;
+        return parent::isEnabled() &&
+            $this->scopeConfig->isSetFlag(
+                self::XML_PATH_BREADCRUMBS_ENABLED,
+                ScopeInterface::SCOPE_STORE
+            );
     }
 
     private function getBreadcrumbItems(): array

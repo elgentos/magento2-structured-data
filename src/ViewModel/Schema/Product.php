@@ -29,6 +29,8 @@ class Product extends AbstractSchema
         SCHEMA_AVAILABILITY_OUT_OF_STOCK = 'https://schema.org/OutOfStock',
         SCHEMA_ITEM_CONDITION_NEW        = 'https://schema.org/NewCondition';
 
+    private const XML_PATH_PRODUCT_ENABLED = 'structured_data/product/enabled';
+
     private Registry $registry;
 
     private Image $imageHelper;
@@ -113,7 +115,11 @@ class Product extends AbstractSchema
 
     public function isEnabled(): bool
     {
-        return true;
+        return parent::isEnabled() &&
+            $this->scopeConfig->isSetFlag(
+                self::XML_PATH_PRODUCT_ENABLED,
+                ScopeInterface::SCOPE_STORE
+            );
     }
 
     private function getProduct(): ?ProductModel

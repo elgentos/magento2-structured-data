@@ -12,6 +12,8 @@ use Magento\Theme\Block\Html\Header\Logo;
 
 class Organization extends AbstractSchema
 {
+    private const XML_PATH_ORGANIZATION_ENABLED = 'structured_data/homepage/organization';
+
     private Logo $logo;
 
     private UrlInterface $urlBuilder;
@@ -44,7 +46,11 @@ class Organization extends AbstractSchema
 
     public function isEnabled(): bool
     {
-        return true;
+        return parent::isEnabled() &&
+            $this->scopeConfig->isSetFlag(
+                self::XML_PATH_ORGANIZATION_ENABLED,
+                ScopeInterface::SCOPE_STORE
+            );
     }
 
     private function getOrganizationAddress(): array

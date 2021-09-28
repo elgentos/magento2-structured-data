@@ -66,8 +66,13 @@ class OrganizationTest extends TestCase
      */
     public function testIsEnabled(): void
     {
+        $scopeConfig = $this->createMock(ScopeConfigInterface::class);
+        $scopeConfig->expects(self::any())
+            ->method('isSetFlag')
+            ->willReturn(true);
+
         $subject = new Organization(
-            $this->createMock(ScopeConfigInterface::class),
+            $scopeConfig,
             $this->createMock(Json::class),
             $this->createMock(UrlInterface::class),
             $this->createMock(Logo::class)

@@ -12,7 +12,7 @@ use Magento\Search\Helper\Data as SearchHelper;
 
 class Website extends AbstractSchema
 {
-    private const XML_PATH_WEBSITE_ENABLED = 'structureddata/homepage/website';
+    private const XML_PATH_WEBSITE_ENABLED = 'structured_data/homepage/website';
 
     private SearchHelper $searchHelper;
 

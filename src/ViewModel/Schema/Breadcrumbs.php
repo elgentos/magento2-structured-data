@@ -20,22 +20,18 @@ class Breadcrumbs extends AbstractSchema
 
     private Data $catalogData;
 
-    private StoreManagerInterface $storeManager;
-
     private UrlInterface $urlBuilder;
 
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         Json $serializer,
-        StoreManagerInterface $storeManager,
         UrlInterface $urlBuilder,
         Data $catalogData
     ) {
         parent::__construct($scopeConfig, $serializer);
 
-        $this->catalogData  = $catalogData;
-        $this->storeManager = $storeManager;
-        $this->urlBuilder   = $urlBuilder;
+        $this->catalogData = $catalogData;
+        $this->urlBuilder  = $urlBuilder;
     }
 
     public function getStructuredData(): array

@@ -50,7 +50,6 @@ class BreadcrumbsTest extends TestCase
         $subject = new Breadcrumbs(
             $this->createMock(ScopeConfigInterface::class),
             $this->createMock(Json::class),
-            $this->createMock(StoreManagerInterface::class),
             $urlBuilder,
             $catalogData
         );
@@ -84,7 +83,6 @@ class BreadcrumbsTest extends TestCase
         $subject = new Breadcrumbs(
             $scopeConfig,
             $this->createMock(Json::class),
-            $this->createMock(StoreManagerInterface::class),
             $this->createMock(UrlInterface::class),
             $this->createMock(Data::class)
         );

@@ -34,10 +34,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ProductTest extends TestCase
 {
-    /**
-     * @covers ::__construct
-     * @covers ::isEnabled
-     */
     public function testIsEnabled(): void
     {
         $scopeConfig = $this->createMock(ScopeConfigInterface::class);
@@ -59,17 +55,6 @@ class ProductTest extends TestCase
     }
 
     /**
-     * @covers ::__construct
-     * @covers ::getStructuredData
-     * @covers ::getProduct
-     * @covers ::getProductImage
-     * @covers ::getGtinAttribute
-     * @covers ::getProductReviews
-     * @covers ::addReviewEntity
-     * @covers ::calculateRatingValue
-     * @covers ::getAggregateRatingValue
-     * @covers ::getReviewLimit
-     *
      * @dataProvider structuredDataDataProvider
      *
      * @throws NoSuchEntityException
@@ -103,10 +88,11 @@ class ProductTest extends TestCase
         $scopeConfig->expects(self::any())
             ->method('getValue')
             ->withConsecutive(
-                [Product::XML_PATH_GTIN_ATTRIBUTE, ScopeInterface::SCOPE_STORE],
+                [Product::XML_PATH_ATTRIBUTE_GTIN, ScopeInterface::SCOPE_STORE],
+                [Product::XML_PATH_ATTRIBUTE_BRAND, ScopeInterface::SCOPE_STORE],
                 [Product::XML_PATH_REVIEW_LIMIT, ScopeInterface::SCOPE_STORE]
             )
-            ->willReturnOnConsecutiveCalls('foobar', 3);
+            ->willReturnOnConsecutiveCalls('gtin', 'brand', 3);
 
         $subject = new Product(
             $scopeConfig,
@@ -184,8 +170,18 @@ class ProductTest extends TestCase
 
         $productModel->expects(self::any())
             ->method('getData')
-            ->withConsecutive(['description'], ['foobar'], ['rating_summary'])
-            ->willReturnOnConsecutiveCalls('foobar', 'foobar', new DataObject());
+            ->withConsecutive(
+                ['description'],
+                ['gtin'],
+                ['brand'],
+                ['rating_summary']
+            )
+            ->willReturnOnConsecutiveCalls(
+                'description',
+                'gtin',
+                'brand',
+                new DataObject()
+            );
 
         return $productModel;
     }

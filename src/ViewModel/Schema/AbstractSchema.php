@@ -11,12 +11,13 @@ use Magento\Store\Model\ScopeInterface;
 
 abstract class AbstractSchema implements SchemaInterface, ArgumentInterface
 {
-    protected const SCHEMA_CONTEXT   = 'https://schema.org/',
+    public const SCHEMA_CONTEXT      = 'https://schema.org/',
         SCHEMA_TYPE_ORGANIZATION     = 'Organization',
         SCHEMA_TYPE_POSTAL_ADDRESS   = 'PostalAddress',
         SCHEMA_TYPE_WEBSITE          = 'WebSite',
         SCHEMA_TYPE_SEARCH_ACTION    = 'SearchAction',
         SCHEMA_TYPE_PRODUCT          = 'Product',
+        SCHEMA_TYPE_BRAND            = 'Brand',
         SCHEMA_TYPE_OFFER            = "Offer",
         SCHEMA_TYPE_REVIEW           = 'Review',
         SCHEMA_TYPE_RATING           = 'Rating',

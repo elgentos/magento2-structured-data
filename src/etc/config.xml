@@ -12,6 +12,7 @@
             <product>
                 <enabled>0</enabled>
                 <gtin/>
+                <brand/>
             </product>
             <breadcrumbs>
                 <enabled>0</enabled>

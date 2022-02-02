@@ -21,9 +21,6 @@ use Elgentos\StructuredData\ViewModel\Schema\AbstractSchema;
 class AbstractSchemaTest extends TestCase
 {
     /**
-     * @covers ::getSerializedData
-     * @covers ::__construct
-     *
      * @dataProvider setStructuredData
      */
     public function testGetSerializedData(

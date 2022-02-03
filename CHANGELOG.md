@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-02-02
+### Added
+- Make it possible to set a [Brand](https://schema.org/Brand) for products
+
+### Remove
+- Remove `@cover` from test docblocks
+
 ## [1.1.0] - 2022-02-02
 ### Changed
 - Added requirements to allow adding the extension to Magento 2.3.7-p1

@@ -21,11 +21,6 @@ use Elgentos\StructuredData\ViewModel\Schema\Website;
  */
 class WebsiteTest extends TestCase
 {
-    /**
-     * @covers ::__construct
-     * @covers ::getStructuredData
-     * @covers ::getPotentialActionData
-     */
     public function testGetStructuredData(): void
     {
         $urlBuilder = $this->createMock(UrlInterface::class);

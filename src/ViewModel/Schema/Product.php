@@ -22,7 +22,8 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class Product extends AbstractSchema
 {
-    public const XML_PATH_GTIN_ATTRIBUTE = 'structured_data/product/gtin',
+    public const XML_PATH_ATTRIBUTE_GTIN = 'structured_data/product/gtin',
+        XML_PATH_ATTRIBUTE_BRAND         = 'structured_data/product/brand',
         XML_PATH_REVIEW_LIMIT            = 'structured_data/product/review_limit',
         RATINGS_BEST_RATING              = 5,
         SCHEMA_AVAILABILITY_IN_STOCK     = 'https://schema.org/InStock',
@@ -93,11 +94,19 @@ class Product extends AbstractSchema
             ]
         ];
 
-        $attributeCode = $this->getGtinAttribute();
-        $reviews       = $this->getProductReviews($product);
+        $gtinAttribute  = $this->getProductAttribute(self::XML_PATH_ATTRIBUTE_GTIN);
+        $brandAttribute = $this->getProductAttribute(self::XML_PATH_ATTRIBUTE_BRAND);
+        $reviews        = $this->getProductReviews($product);
 
-        if ($attributeCode) {
-            $data['gtin'] = $product->getData($attributeCode);
+        if ($gtinAttribute) {
+            $data['gtin'] = $product->getData($gtinAttribute);
+        }
+
+        if ($brandAttribute) {
+            $data['brand'] = [
+                '@type' => self::SCHEMA_TYPE_BRAND,
+                'name' => $product->getData($brandAttribute)
+            ];
         }
 
         if ($reviews->getSize()) {
@@ -134,10 +143,10 @@ class Product extends AbstractSchema
             ->getUrl();
     }
 
-    private function getGtinAttribute(): ?string
+    private function getProductAttribute(string $attribute): ?string
     {
         return $this->scopeConfig->getValue(
-            self::XML_PATH_GTIN_ATTRIBUTE,
+            $attribute,
             ScopeInterface::SCOPE_STORE
         );
     }

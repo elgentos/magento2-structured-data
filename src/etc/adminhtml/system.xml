@@ -46,6 +46,10 @@
                     <source_model>Elgentos\StructuredData\Model\Config\Source\ProductAttributes</source_model>
                     <comment><![CDATA[For example GTIN, ISBN, MPN, etc.]]></comment>
                 </field>
+                <field id="brand" sortOrder="20" showInDefault="1" showInStore="1" showInWebsite="1" translate="label" type="select">
+                    <label>Brand</label>
+                    <source_model>Elgentos\StructuredData\Model\Config\Source\ProductAttributes</source_model>
+                </field>
                 <field id="review_limit" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1" translate="label comment" type="text">
                     <label>Maximum Number of Reviews to Display</label>
                     <validate>validate-zero-or-greater</validate>

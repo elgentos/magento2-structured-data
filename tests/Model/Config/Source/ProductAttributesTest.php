@@ -21,10 +21,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ProductAttributesTest extends TestCase
 {
-    /**
-     * @covers ::__construct
-     * @covers ::toOptionArray
-     */
     public function testToOptionArray(): void
     {
         $collection = $this->createMock(Collection::class);

@@ -23,19 +23,6 @@ class OrganizationTest extends TestCase
 {
     /**
      * @return void
-     *
-     * @covers ::__construct
-     * @covers ::getStructuredData
-     * @covers ::getOrganizationAddress
-     * @covers ::getCompanyName
-     * @covers ::getCompanyEmail
-     * @covers ::getCompanyTelephone
-     * @covers ::getCompanyAddressCity
-     * @covers ::getCompanyAddressRegion
-     * @covers ::getCompanyAddressCountry
-     * @covers ::getCompanyAddressPostalCode
-     * @covers ::getCompanyAddressStreetAddress
-     * @covers ::getWebsiteLogo
      */
     public function testGetStructuredData(): void
     {

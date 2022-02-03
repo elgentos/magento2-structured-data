@@ -23,11 +23,6 @@ use Elgentos\StructuredData\ViewModel\Schema\Breadcrumbs;
 class BreadcrumbsTest extends TestCase
 {
     /**
-     * @covers ::__construct
-     * @covers ::getStructuredData
-     * @covers ::getBreadcrumbItems
-     * @covers ::generateListItem
-     *
      * @dataProvider breadcrumbsDataProvider
      */
     public function testGetStructuredData(
